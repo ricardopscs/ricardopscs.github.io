@@ -1,0 +1,47 @@
+;SetupMgrTag
+[Data]
+    AutoPartition=1
+    MsDosInitiated="0"
+    UnattendedInstall="Yes"
+
+[Unattended]
+    UnattendMode=FullUnattended
+    OemSkipEula=Yes
+    OemPreinstall=No
+    TargetPath=\WINDOWS
+
+[GuiUnattended]
+    AdminPassword="scanreg"
+    EncryptedAdminPassword=NO
+    AutoLogon=Yes
+    AutoLogonCount=1
+    OEMSkipRegional=1
+    TimeZone=65
+    OemSkipWelcome=1
+
+[UserData]
+    ProductID=B3884-B2BR7-PX9WY-4VGT4-FRHPW
+    FullName="Cliente"
+    OrgName="Scanreg"
+    ComputerName=Clientes
+
+[Display]
+    BitsPerPel=32
+    Xresolution=800
+    YResolution=600
+    Vrefresh=85
+
+[TapiLocation]
+    CountryCode=591
+    Dialing=Tone
+    AreaCode=51
+
+[RegionalSettings]
+    LanguageGroup=2
+
+[Identification]
+    JoinWorkgroup=SCANREG
+
+[Networking]
+    InstallDefaultComponents=Yes
+
