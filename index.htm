@@ -1,0 +1,356 @@
+<SCRIPT> 
+if (top.frames.length!=0) 
+	top.location=self.document.location; 
+</SCRIPT>
+
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns="http://www.w3.org/TR/REC-html40">
+	<head>
+    	<title>
+    		<< $ &#268; @ N ® & G >>   .: O Sistema da Informática :.
+    	</title>
+			<script> 
+ 				var repeat=1 
+ 				var title=document.title
+ 				var leng=title.length
+ 				var start=1
+ 				function titlemove ()
+ 				{
+ 					titl=title.substring(start, leng) + title.substring(0, start)
+					document.title=titl
+					start++
+					if (start==leng+1) 
+					{
+						start=0
+						if (repeat==0)
+							return
+					}
+					setTimeout("titlemove()",140)
+				}
+				if (document.title)
+					titlemove()	
+			</script>
+	    </head>
+	<body bgcolor="#000000" leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" text="#dcdcdc" link="#FFFFFF" alink="#FFFFFF" vlink="#FFFFFF" background="fundo.jpg"><STYLE TEXT="test/css">
+<!--
+
+BODY{scrollbar-face-color: #0064C8; scrollbar-shadow-color: #B4D3F1; scrollbar-highlight-color: #B4D3F1; scrollbar-3dlight-color: #001462; scrollbar-darkshadow-color: #001462; scrollbar-track-color: #ffff00; scrollbar-arrow-color: #ffff00}
+
+-->
+    </style>
+<script language="JavaScript">
+x=screen.width;
+y=screen.height;
+if (x!=800)
+{
+	alert('Sua resolução está configurada em ' + x + "x" + y + ", portanto a nossa página não será exibida corretamente. Se possível, altere-a para 800x600.");
+}
+    </script>
+<body background="fundo.jpg">
+
+<SCRIPT>
+	dCol='#FFFF00';
+	fCol='#00FFFF';
+	sCol='#FFFFFF';
+	mCol='#FFFFFF';
+	hCol='#FFFFFF';
+	ClockHeight=40;
+	ClockWidth=40;
+	ClockFromMouseY=0;
+	ClockFromMouseX=100;
+	d=new Array("Scanreg","Scanreg","Scanreg","Scanreg","Scanreg","Scanreg","Scanreg");
+	m=new Array("JANEIRO","FEVEREIRO","MARÇO","ABRIL","MAIO","JUNHO","JULHO","AGOSTO","SETEMBRO","OUTUBRO","NOVEMBRO","DEZEMBRO");
+	date=new Date();
+	day=date.getDate();
+	year=date.getYear();
+	if (year < 2000) 
+		year=year+1900;
+	TodaysDate=" "+d[date.getDay()]+" "+day+" "+m[date.getMonth()]+ " " + year;
+	D=TodaysDate.split('');
+	H='...';
+	H=H.split('');
+	M='....';
+	M=M.split('');
+	S='.....';
+	S=S.split('');
+	Face='I II III IV V VI VII VIII IX X XI XII';
+	font='Arial';
+	size=1;
+	speed=0.1;
+	ns=(document.layers);
+	ie=(document.all);
+	Face=Face.split(' ');
+	n=Face.length;
+	a=size*10;
+	ymouse=0;
+	xmouse=0;
+	scrll=0;
+	props="<font face="+font+" size="+size+" color="+fCol+"><B>";
+	props2="<font face="+font+" size="+size+" color="+dCol+"><B>";
+	Split=360/n;
+	Dsplit=360/D.length;
+	HandHeight=ClockHeight/4.5;
+	HandWidth=ClockWidth/4.5;
+	HandY=-7;
+	HandX=-2.5;
+	scrll=0;
+	step=0.02;
+	currStep=0;
+	y=new Array();
+	x=new Array();
+	Y=new Array();
+	X=new Array();
+	for (i=0; i < n; i++)
+	{
+		y[i]=0;
+		x[i]=0;
+		Y[i]=0;
+		X[i]=0
+	}
+	Dy=new Array();
+	Dx=new Array();
+	DY=new Array();
+	DX=new Array();
+	for (i=0; i<D.length; i++)
+	{
+		Dy[i]=0;
+		Dx[i]=0;
+		DY[i]=0;
+		DX[i]=0;
+	}
+	if (ns)
+	{
+		for (i=0; i < D.length; i++)
+			document.write('<layer name="nsDate'+i+'" top=0 left=0 height='+a+' width='+a+'><center>'+props2+D[i]+'</font></center></layer>');
+		for (i=0; i < n; i++)
+			document.write('<layer name="nsFace'+i+'" top=0 left=0 height='+a+' width='+a+'><center>'+props+Face[i]+'</font></center></layer>');
+		for (i=0; i < S.length; i++)
+			document.write('<layer name=nsSeconds'+i+' top=0 left=0 width=15 height=15><font face=Arial size=3 color='+sCol+'><center><b>'+S[i]+'</b></center></font></layer>');
+		for (i=0; i < M.length; i++)
+			document.write('<layer name=nsMinutes'+i+' top=0 left=0 width=15 height=15><font face=Arial size=3 color='+mCol+'><center><b>'+M[i]+'</b></center></font></layer>');
+		for (i=0; i < H.length; i++)
+			document.write('<layer name=nsHours'+i+' top=0 left=0 width=15 height=15><font face=Arial size=3 color='+hCol+'><center><b>'+H[i]+'</b></center></font></layer>');
+	}
+	if (ie)
+	{
+		document.write('<div id="Od" style="position:absolute;top:0px;left:0px"><div style="position:relative">');
+		for (i=0; i < D.length; i++)
+			document.write('<div id="ieDate" style="position:absolute;top:0px;left:0;height:'+a+';width:'+a+';text-align:center">'+props2+D[i]+'</B></font></div>');
+		document.write('</div></div>');
+		document.write('<div id="Of" style="position:absolute;top:0px;left:0px"><div style="position:relative">');
+		for (i=0; i<n; i++)
+			document.write('<div id="ieFace" style="position:absolute;top:0px;left:0;height:'+a+';width:'+a+';text-align:center">'+props+Face[i]+'</B></font></div>');
+		document.write('</div></div>');
+		document.write('<div id="Oh" style="position:absolute;top:0px;left:0px"><div style="position:relative">');
+		for (i=0; i < H.length; i++)
+			document.write('<div id="ieHours" style="position:absolute;width:16px;height:16px;font-family:Arial;font-size:16px;color:'+hCol+';text-align:center;font-weight:bold">'+H[i]+'</div>');
+		document.write('</div></div>');
+		document.write('<div id="Om" style="position:absolute;top:0px;left:0px"><div style="position:relative">');
+		for (i=0; i < M.length; i++)
+			document.write('<div id="ieMinutes" style="position:absolute;width:16px;height:16px;font-family:Arial;font-size:16px;color:'+mCol+';text-align:center;font-weight:bold">'+M[i]+'</div>');
+		document.write('</div></div>')
+		document.write('<div id="Os" style="position:absolute;top:0px;left:0px"><div style="position:relative">');
+		for (i=0; i < S.length; i++)
+			document.write('<div id="ieSeconds" style="position:absolute;width:16px;height:16px;font-family:Arial;font-size:16px;color:'+sCol+';text-align:center;font-weight:bold">'+S[i]+'</div>');
+		document.write('</div></div>');
+	}
+	(ns)?window.captureEvents(Event.MOUSEMOVE):0;
+	function Mouse(evnt)
+	{
+		ymouse = (ns)?
+			evnt.pageY+ClockFromMouseY-(window.pageYOffset):event.y+ClockFromMouseY;
+		xmouse = (ns)?
+			evnt.pageX+ClockFromMouseX:event.x+ClockFromMouseX;
+	}
+	(ns)?
+		window.onMouseMove=Mouse:document.onmousemove=Mouse;
+	function ClockAndAssign()
+	{
+		time = new Date();
+		secs = time.getSeconds();
+		sec = -1.57 + Math.PI * secs/30;
+		mins = time.getMinutes();
+		min = -1.57 + Math.PI * mins/30;
+		hr = time.getHours();
+		hrs = -1.575 + Math.PI * hr/6+Math.PI*parseInt(time.getMinutes())/360;
+		if (ie)
+		{
+			Od.style.top=window.document.body.scrollTop;
+			Of.style.top=window.document.body.scrollTop;
+			Oh.style.top=window.document.body.scrollTop;
+			Om.style.top=window.document.body.scrollTop;
+			Os.style.top=window.document.body.scrollTop;
+		}
+		for (i=0; i < n; i++)
+		{
+			var F=(ns)?document.layers['nsFace'+i]:ieFace[i].style;
+			F.top=y[i] + ClockHeight*Math.sin(-1.0471 + i*Split*Math.PI/180)+scrll;
+			F.left=x[i] + ClockWidth*Math.cos(-1.0471 + i*Split*Math.PI/180);
+		}
+		for (i=0; i < H.length; i++)
+		{
+			var HL=(ns)?document.layers['nsHours'+i]:ieHours[i].style;
+			HL.top=y[i]+HandY+(i*HandHeight)*Math.sin(hrs)+scrll;
+			HL.left=x[i]+HandX+(i*HandWidth)*Math.cos(hrs);
+		}
+		for (i=0; i < M.length; i++)
+		{
+			var ML=(ns)?document.layers['nsMinutes'+i]:ieMinutes[i].style;
+			ML.top=y[i]+HandY+(i*HandHeight)*Math.sin(min)+scrll;
+			ML.left=x[i]+HandX+(i*HandWidth)*Math.cos(min);
+		}
+		for (i=0; i < S.length; i++)
+		{
+			var SL=(ns)?document.layers['nsSeconds'+i]:ieSeconds[i].style;
+			SL.top=y[i]+HandY+(i*HandHeight)*Math.sin(sec)+scrll;
+			SL.left=x[i]+HandX+(i*HandWidth)*Math.cos(sec);
+		}
+		for (i=0; i < D.length; i++)
+		{
+			var DL=(ns)?document.layers['nsDate'+i]:ieDate[i].style;
+			DL.top=Dy[i] + ClockHeight*1.5*Math.sin(currStep+i*Dsplit*Math.PI/180)+scrll;
+			DL.left=Dx[i] + ClockWidth*1.5*Math.cos(currStep+i*Dsplit*Math.PI/180);
+		}
+		currStep-=step;
+	}
+	function Delay()
+	{
+		scrll=(ns)?window.pageYOffset:0;
+		Dy[0]=Math.round(DY[0]+=((ymouse)-DY[0])*speed);
+		Dx[0]=Math.round(DX[0]+=((xmouse)-DX[0])*speed);
+		for (i=1; i < D.length; i++)
+		{
+			Dy[i]=Math.round(DY[i]+=(Dy[i-1]-DY[i])*speed);
+			Dx[i]=Math.round(DX[i]+=(Dx[i-1]-DX[i])*speed);
+		}
+		y[0]=Math.round(Y[0]+=((ymouse)-Y[0])*speed);
+		x[0]=Math.round(X[0]+=((xmouse)-X[0])*speed);
+		for (i=1; i < n; i++)
+		{
+			y[i]=Math.round(Y[i]+=(y[i-1]-Y[i])*speed);
+			x[i]=Math.round(X[i]+=(x[i-1]-X[i])*speed);
+		}
+		ClockAndAssign();
+		setTimeout('Delay()',20);
+	}
+	if (ns||ie)window.onload=Delay;
+</SCRIPT>
+<script language="JavaScript">
+function MM_reloadPage(init) 
+{  
+  if (init==true) with (navigator) 
+  {
+  	if ((appName=="Netscape")&&(parseInt(appVersion)==4)) 
+  	{
+    	document.MM_pgW=innerWidth; 
+    	document.MM_pgH=innerHeight; 
+    	onresize=MM_reloadPage; 
+    }
+  }
+  else 
+  	if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+function MM_swapImgRestore() 
+{
+  var i,x,a=document.MM_sr; 
+  for (i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() 
+{
+  	var d=document; 
+  	if(d.images)
+  	{ 
+  		if(!d.MM_p) 
+  			d.MM_p=new Array();
+    	var i,j=d.MM_p.length,a=MM_preloadImages.arguments; 
+    	for (i=0; i<a.length; i++)
+    	if (a[i].indexOf("#")!=0)
+    	{ 
+    		d.MM_p[j]=new Image; 
+    		d.MM_p[j++].src=a[i];
+  		}
+	}	
+}
+function MM_findObj(n, d)
+{
+  var p,i,x;  
+  if(!d) 
+  	d=document; 
+  if((p=n.indexOf("?"))>0&&parent.frames.length) 
+  {
+    d=parent.frames[n.substring(p+1)].document;
+    n=n.substring(0,p);
+   }
+  if(!(x=d[n])&&d.all) 
+  	x=d.all[n]; 
+  for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && document.getElementById) x=document.getElementById(n); 
+  	return x;
+}
+function MM_swapImage()
+{
+  var i,j=0,x,a=MM_swapImage.arguments; 
+  document.MM_sr=new Array; 
+  for(i=0;i<(a.length-2);i+=3)
+  if ((x=MM_findObj(a[i]))!=null)
+  {
+  	document.MM_sr[j++]=x; 
+  	if(!x.oSrc) x.oSrc=x.src; 
+  		x.src=a[i+2];
+  }
+}
+</script> 
+      <td rowspan="2" colspan="3"></td>
+<BODY width="756" height="554" background="fundo.jpg">
+<div align="center">
+  <center>
+  <table border="0" cellspacing="0" width="779" background="logo.jpg" height="633" style="border-collapse: collapse" cellpadding="0">
+    <tr>
+      <td width="100%" height="20" colspan="2">
+      <p align="center"><font size="2">Melhor Visualizado em 800 x 600</font></td>
+    </tr>
+    <tr>
+      <td width="20%" height="53">&nbsp;</td>
+      <td width="82%" height="53">
+      <p align="right">&nbsp;
+      Acesso N.º:<script language="javascript" src="http://itools.criandosite.com.br/contador.php?codUsuario=337385&fontColor=FFFF00"></script>
+</td>
+    </tr>    
+    <tr>
+      <td width="20%" height="176">&nbsp;</td>
+      <td width="82%" height="176">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="20%" height="269">&nbsp;</td>
+      <td width="82%" height="269">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="100%" height="42" colspan="2" bgcolor="#CCCC00" align="center">
+      <p align="center">
+    
+	<a href="historia.html" onMouseOut="MM_swapImgRestore()"  onMouseOver="MM_swapImage('index_2','','botao2.jpg',1);" >
+    <img name="index_2" src="botao1.jpg" width="177" height="36" border="0"></a><a href="servicos.html" onMouseOut="MM_swapImgRestore()"  onMouseOver="MM_swapImage('index_1','','botao6.jpg',1);" ><img name="index_1" src="botao5.jpg" width="177" height="36" border="0"></a><a href="downloads.html" onMouseOut="MM_swapImgRestore()"  onMouseOver="MM_swapImage('index_3','','botao4.jpg',1);" ><img name="index_3" src="botao3.jpg" width="177" height="36" border="0" hspace="0"></a></td>
+    </tr>
+    <tr>
+      <td width="102%" height="57" colspan="2">
+      <p align="center">&nbsp;</p>
+      <TR><TD height="1"></td>
+    </tr>
+    <tr>
+      <td width="102%" height="16" colspan="2">
+<HR color="#FFFFFF">
+	  <p align="center">
+	<font color="#FFFFFF">
+		Scanreg © 2004-2006 Informática</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+    
+	</body>
+	<BODY width="756" height="554" background="fundo.jpg">
+
+    </body>
+	
+</html>
